@@ -1,6 +1,17 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Instructions on how to play this game:
+--------------------------------------
+1. Open index.html in google chrome browser (required to play winning audio).
+2. Choose your avatar with "a" key.
+3. Use arrow keys to move freely around the field.
+4. Oh and don't touch the bugs or let them bite; coz if you do so, your player will die.
+5. Player wins when player avavtar reaches water stream
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+Note:
+-----
+* Bugs will move at random speeds
+* You can come back down on grass
+* Bugs will not come on grass or in stream
+* To reset the game, press F5 :)
