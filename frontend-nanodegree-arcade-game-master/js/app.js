@@ -111,7 +111,8 @@ Player.prototype.handleInput = function (direction) {
         if (!this.playerSelected) {
           this.playerSelected = true;
         }
-        if (1 == this.row) {
+        if (!this.ifWon && (1 == this.row)) {
+          this.ifWon = true;
           var audio = new Audio("owin31.wav");
           audio.play();
         }
