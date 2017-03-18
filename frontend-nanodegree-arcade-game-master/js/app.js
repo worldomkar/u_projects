@@ -59,13 +59,23 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function () {
-  this.sprite = 'images/char-boy.png';
+  this.sprites = [
+    'images/char-boy.png',
+    'images/char-cat-girl.png',
+    'images/char-horn-girl.png',
+    'images/char-pink-girl.png',
+    'images/char-princess-girl.png'
+  ];
+  this.selectedSprite = 0;
+  this.sprite = this.sprites[this.selectedSprite];
+  this.playerSelected = false;
   this.init ();
 };
 
 Player.prototype.init = function () {
   this.row = 5;
   this.column = 3;
+  this.playerSelected = false;
 }
 
 Player.prototype.update = function () {
@@ -82,21 +92,45 @@ Player.prototype.handleInput = function (direction) {
     case 'left':
       if (this.column > 1) {
         this.column -= 1;
+        if (!this.playerSelected) {
+          this.playerSelected = true;
+        }
       }
       break;
     case 'right':
       if (this.column < 5) {
         this.column += 1;
+        if (!this.playerSelected) {
+          this.playerSelected = true;
+        }
       }
       break;
     case 'up':
       if (this.row > 1) {
         this.row -= 1;
+        if (!this.playerSelected) {
+          this.playerSelected = true;
+        }
+        if (1 == this.row) {
+          var audio = new Audio("owin31.wav");
+          audio.play();
+        }
       }
       break;
     case 'down':
       if (this.row < 6) {
         this.row += 1;
+        if (!this.playerSelected) {
+          this.playerSelected = true;
+        }
+      }
+      break;
+    case 'avatar':
+      if (!this.playerSelected) {
+        if ((++ this.selectedSprite) > 4) {
+          this.selectedSprite = 0;
+        }
+        this.sprite = this.sprites[this.selectedSprite];
       }
       break;
     default:
@@ -124,7 +158,8 @@ document.addEventListener('keyup', function(e) {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        65: 'avatar'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
